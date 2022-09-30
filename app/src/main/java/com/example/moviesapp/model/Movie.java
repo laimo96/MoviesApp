@@ -14,11 +14,16 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 @Generated("jsonschema2pojo")
+// BaseObservable is used to make data bindable, and to use bindable data binding is neeeded
+// Parcelable we use because we will parce data between activities using Movie model class
 public class Movie extends BaseObservable implements Parcelable {
 
+    // later will use Glide library to display the image
     @SerializedName("poster_path")
     @Expose
     private String posterPath;
+
+
     @SerializedName("adult")
     @Expose
     private Boolean adult;
@@ -58,6 +63,23 @@ public class Movie extends BaseObservable implements Parcelable {
     @SerializedName("vote_average")
     @Expose
     private Double voteAverage;
+
+
+    // Parcel
+    public final static Parcelable.Creator<Movie> CREATor = new Creator<Movie>() {
+        @Override
+        public Movie createFromParcel(Parcel parcel) {
+            return new Movie(parcel);
+        }
+
+        @Override
+        public Movie[] newArray(int i) {
+            return (new Movie[i]);
+        }
+    };
+
+
+
 
     // Bindable has to be before every get, after placing the Bindable, rebuild project is needed
     // notifyPropertyChanged needs to be placed at the end of the set
@@ -223,5 +245,26 @@ public class Movie extends BaseObservable implements Parcelable {
         parcel.writeValue(adult);
         parcel.writeValue(overview);
         parcel.writeValue(releaseDate);
+    }
+
+
+    public Movie() {
+    }
+
+    public Movie( Parcel in ) {
+        this.voteCount = ((Integer) in.readValue((Integer.class.getClassLoader())));
+        this.id = ((Integer) in.readValue((Integer.class.getClassLoader())));
+        this.video = ((Boolean) in.readValue((Boolean.class.getClassLoader())));
+        this.voteAverage = ((Double) in.readValue((Double.class.getClassLoader())));
+        this.title = ((String) in.readValue((String.class.getClassLoader())));
+        this.popularity = ((Double) in.readValue((Double.class.getClassLoader())));
+        this.posterPath = ((String) in.readValue((String.class.getClassLoader())));
+        this.originalLanguage = ((String) in.readValue((String.class.getClassLoader())));
+        this.originalTitle = ((String) in.readValue((String.class.getClassLoader())));
+        in.readList(this.genreIds, (java.lang.Integer.class.getClassLoader()));
+        this.backdropPath = ((String) in.readValue((String.class.getClassLoader())));
+        this.adult = ((Boolean) in.readValue((Boolean.class.getClassLoader())));
+        this.overview = ((String) in.readValue((String.class.getClassLoader())));
+        this.releaseDate = ((String) in.readValue((String.class.getClassLoader())));
     }
 }
