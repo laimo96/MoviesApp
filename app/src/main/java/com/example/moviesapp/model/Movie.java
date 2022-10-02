@@ -2,14 +2,19 @@ package com.example.moviesapp.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.widget.ImageView;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
+import androidx.databinding.BindingAdapter;
 import androidx.databinding.library.baseAdapters.BR;
 
 import java.util.List;
 import javax.annotation.Generated;
 
+import com.bumptech.glide.Glide;
+import com.example.moviesapp.BR;
+import com.example.moviesapp.R;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -78,7 +83,20 @@ public class Movie extends BaseObservable implements Parcelable {
         }
     };
 
+    @BindingAdapter({"posterPath"})
+    public static void loadImage(ImageView imageView, String imageURL){
 
+        // BASIC IMAGE URL
+        // https://image.tmdb.org/t/p/original/[poster_path]
+
+        String imagePath = "https://image.tmdb.org/t/p/w500" + imageURL;
+
+
+        Glide.with(imageView.getContext())
+                .load(imagePath)
+                .into(imageView);
+
+    }
 
 
     // Bindable has to be before every get, after placing the Bindable, rebuild project is needed
