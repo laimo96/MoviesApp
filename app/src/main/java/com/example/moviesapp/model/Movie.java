@@ -7,16 +7,15 @@ import android.widget.ImageView;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.databinding.BindingAdapter;
-import androidx.databinding.library.baseAdapters.BR;
-
-import java.util.List;
-import javax.annotation.Generated;
 
 import com.bumptech.glide.Glide;
 import com.example.moviesapp.BR;
-import com.example.moviesapp.R;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+
+import javax.annotation.Generated;
 
 @Generated("jsonschema2pojo")
 // BaseObservable is used to make data bindable, and to use bindable data binding is neeeded
