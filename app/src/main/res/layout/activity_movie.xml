@@ -18,7 +18,7 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+            android:theme="@style/AppTheme.AppBarOverlay">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:layout_width="match_parent"
@@ -46,12 +46,12 @@
 
                 </RelativeLayout>
 
-                <Toolbar
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:id="@+id/toolbar"
-                    app:layout_collapseMode="pin"
-                    app:popupTheme="@style/AppTheme.PopupOverlay"/>
+<!--                <Toolbar-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="?attr/actionBarSize"-->
+<!--                    android:id="@+id/toolbar"-->
+<!--                    app:layout_collapseMode="pin"-->
+<!--                    app:popupTheme="@style/AppTheme.PopupOverlay"/>-->
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 
